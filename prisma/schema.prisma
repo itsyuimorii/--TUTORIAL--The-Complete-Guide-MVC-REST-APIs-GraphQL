@@ -6,14 +6,14 @@ generator client {
   previewFeatures = ["fullTextIndex", "fullTextSearch"]
 }
 
+ 
+// prisma/schema.prisma
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
 }
-
+ 
 model Task {
   id        String   @id @default(uuid())
   title     String
-
-  @@fulltext([title])
 }
